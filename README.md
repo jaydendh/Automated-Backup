@@ -454,10 +454,9 @@ This part is done in the Azure Portal since the Logic App's *workflow definition
 
 ![Logic Group Designer](./screenshots/06-logic-app-designer-flow.png)
 >
-![Logic App History](./screenshots/07-logic-app-run-history.png)` — Logic App → "Run history," showing at least one successful run with a green checkmark.
+![Logic App History](./screenshots/07-logic-app-run-history.png)
 >
-![Confirmation Email](./screenshots/08-confirmation-email.png)` — the actual confirmation email received in your inbox, showing the subject line and body text.
-
+![Confirmation Email](./screenshots/08-confirmation-email.png)
 ### Step 7 — Test backup versioning end-to-end
 
 Upload a test file:
@@ -548,12 +547,11 @@ You should see **two rows** for `test/backup_test.txt` — the current version a
 - [ ] Alert rule `alert-no-backup-writes` exists in Monitor → Alerts
 - [ ] Test file upload produced two versions in the blob list output
 
-![Versioning Enabled](./screenshots/04-versioning-enabled.png)` — Storage account → **Data management → Versioning**, showing the toggle set to **Enabled**.
+![Versioning Enabled](./screenshots/04-versioning-enabled.png)
 >
-![Lifecycle Management](./screenshots/05-lifecycle-policy-rule.png)` — Storage account → **Data management → Lifecycle management**, showing the `backup-lifecycle` rule with its tiering days visible.
+![Lifecycle Management](./screenshots/05-lifecycle-policy-rule.png)
 >
-![Monitor Alert](./screenshots/10-monitor-alert-rule.png)` — Monitor → Alerts → Alert rules, showing `alert-no-backup-writes` with its condition and severity visible.
-
+![Monitor Alert](./screenshots/10-monitor-alert-rule.png)
 ## Troubleshooting
 
 | Error | Cause | Resolution |
