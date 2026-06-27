@@ -535,7 +535,7 @@ az storage blob list \
 
 You should see **two rows** for `test/backup_test.txt` — the current version and one previous version, confirming versioning is working.
 
-![Blob Version History](./screenshots/09-blob-version-history.png)` — either the terminal output of the `az storage blob list --include v` command showing two rows, **or** the portal's container view with the "Show versions" toggle enabled, showing both versions of `backup_test.txt`.
+![Blob Version History](./screenshots/09-blob-version-history.png)
 
 ## Verification Checklist
 
