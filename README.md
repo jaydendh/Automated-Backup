@@ -47,7 +47,7 @@ The result: no more lost data, no more manual processes, no more hoping someone 
 
 ## Architecture
 
-![Architecture Diagram](azure-architecture-diagram.svg)
+![Architecture Diagram](./screenshots/azure-architecture-diagram.svg)
 
 **Data flow:**
 1. Files land in one of three private Blob containers (`documents`, `database-exports`, `application-files`) in a GRS-replicated storage account.
