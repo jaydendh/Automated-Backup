@@ -424,7 +424,7 @@ terraform apply
 
 Expect **11 resources to add**. Deployment takes 2–3 minutes.
 
-![Terraform Apply](./screenshots/02-terraform-apply-complete.png)
+![Terraform Apply](./screenshots/02-terraform-apply-complete..png)
 >
 ![Resource Groups](./screenshots/03-resource-group-resources.png)
 ### Step 6 — Configure the daily confirmation Logic App
