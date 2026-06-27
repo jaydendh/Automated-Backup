@@ -1,0 +1,193 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#605E5C"/>
+    </marker>
+    <filter id="tileShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="700" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="600" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#201F1E">Automated Backup System — Azure Architecture</text>
+  <text x="600" y="55" text-anchor="middle" font-size="12.5" fill="#605E5C">rg-backup-jayden · East US (GRS replica: West US)</text>
+
+  <!-- Resource Group boundary -->
+  <rect x="230" y="90" width="800" height="500" rx="10" fill="#FAFAFA" stroke="#605E5C" stroke-width="1.25" stroke-dasharray="6,4"/>
+  <text x="248" y="112" font-size="12" font-weight="600" fill="#605E5C">RESOURCE GROUP — rg-backup-jayden</text>
+
+  <!-- ============ ICON TILE TEMPLATE NOTES ============ -->
+  <!-- Each tile: 64x64 rounded square icon + label below -->
+
+  <!-- ===== Actor: Application / User (left, outside RG) ===== -->
+  <g filter="url(#tileShadow)">
+    <rect x="40" y="160" width="64" height="64" rx="12" fill="#5C6770"/>
+  </g>
+  <!-- simple computer/user glyph -->
+  <rect x="58" y="176" width="28" height="20" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="72" y1="196" x2="72" y2="204" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="64" y1="204" x2="80" y2="204" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="72" y="240" text-anchor="middle" font-size="11.5" font-weight="600" fill="#201F1E">Application</text>
+  <text x="72" y="254" text-anchor="middle" font-size="10" fill="#605E5C">writes files</text>
+
+  <!-- ===== Storage Account tile ===== -->
+  <g filter="url(#tileShadow)">
+    <rect x="270" y="160" width="64" height="64" rx="12" fill="#0078D4"/>
+  </g>
+  <!-- storage glyph: stacked bars -->
+  <rect x="288" y="174" width="28" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="288" y="187" width="28" height="10" rx="2" fill="#FFFFFF" opacity="0.85"/>
+  <rect x="288" y="200" width="28" height="10" rx="2" fill="#FFFFFF" opacity="0.7"/>
+  <text x="302" y="240" text-anchor="middle" font-size="11.5" font-weight="700" fill="#201F1E">Storage Account</text>
+  <text x="302" y="254" text-anchor="middle" font-size="10" fill="#605E5C">stbackupjayden</text>
+  <text x="302" y="267" text-anchor="middle" font-size="9.5" fill="#0078D4">GRS · versioned</text>
+
+  <!-- Containers (small sub-tiles under storage) -->
+  <rect x="262" y="282" width="80" height="26" rx="5" fill="#E5F1FB" stroke="#0078D4"/>
+  <text x="302" y="299" text-anchor="middle" font-size="9" fill="#004578">documents</text>
+
+  <rect x="262" y="314" width="80" height="26" rx="5" fill="#E5F1FB" stroke="#0078D4"/>
+  <text x="302" y="331" text-anchor="middle" font-size="8.5" fill="#004578">database-exports</text>
+
+  <rect x="262" y="346" width="80" height="26" rx="5" fill="#E5F1FB" stroke="#0078D4"/>
+  <text x="302" y="363" text-anchor="middle" font-size="8.5" fill="#004578">application-files</text>
+
+  <!-- Lifecycle policy badge -->
+  <rect x="240" y="384" width="124" height="50" rx="6" fill="#E5F1FB" stroke="#0078D4" stroke-dasharray="3,2"/>
+  <text x="302" y="402" text-anchor="middle" font-size="9.5" font-weight="600" fill="#004578">Lifecycle Policy</text>
+  <text x="302" y="416" text-anchor="middle" font-size="8.5" fill="#201F1E">Hot→Cool(30d)→Archive(90d)</text>
+  <text x="302" y="428" text-anchor="middle" font-size="8.5" fill="#201F1E">→Delete(365d)</text>
+
+  <!-- ===== Log Analytics Workspace tile ===== -->
+  <g filter="url(#tileShadow)">
+    <rect x="500" y="130" width="64" height="64" rx="12" fill="#107C10"/>
+  </g>
+  <!-- magnifier-over-bars glyph -->
+  <rect x="517" y="148" width="6" height="16" fill="#FFFFFF"/>
+  <rect x="526" y="142" width="6" height="22" fill="#FFFFFF"/>
+  <rect x="535" y="152" width="6" height="12" fill="#FFFFFF"/>
+  <circle cx="540" cy="158" r="7" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="545" y1="163" x2="550" y2="168" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="532" y="210" text-anchor="middle" font-size="11.5" font-weight="700" fill="#201F1E">Log Analytics</text>
+  <text x="532" y="224" text-anchor="middle" font-size="10" fill="#605E5C">law-backup-jayden</text>
+  <text x="532" y="237" text-anchor="middle" font-size="9.5" fill="#107C10">30-day retention</text>
+
+  <!-- Diagnostic settings note -->
+  <rect x="480" y="252" width="104" height="40" rx="6" fill="#EAF7E9" stroke="#107C10" stroke-dasharray="3,2"/>
+  <text x="532" y="268" text-anchor="middle" font-size="9" font-weight="600" fill="#0B5A0B">Diagnostic Settings</text>
+  <text x="532" y="280" text-anchor="middle" font-size="8.5" fill="#201F1E">Read/Write/Delete logs</text>
+
+  <!-- ===== Monitor Alert Rule tile ===== -->
+  <g filter="url(#tileShadow)">
+    <rect x="730" y="130" width="64" height="64" rx="12" fill="#D13438"/>
+  </g>
+  <!-- bell glyph -->
+  <path d="M762 144 a10 10 0 0 1 10 10 v8 l4 6 h-28 l4 -6 v-8 a10 10 0 0 1 10 -10 z" fill="#FFFFFF"/>
+  <rect x="758" y="170" width="8" height="5" rx="2" fill="#FFFFFF"/>
+  <text x="762" y="210" text-anchor="middle" font-size="11.5" font-weight="700" fill="#201F1E">Monitor Alert</text>
+  <text x="762" y="224" text-anchor="middle" font-size="9.5" fill="#605E5C">alert-no-backup-writes</text>
+  <text x="762" y="237" text-anchor="middle" font-size="9.5" fill="#D13438">Transactions &lt; 1 / 24h</text>
+
+  <!-- ===== Logic App tile ===== -->
+  <g filter="url(#tileShadow)">
+    <rect x="500" y="380" width="64" height="64" rx="12" fill="#5C2D91"/>
+  </g>
+  <!-- flow glyph: three nodes connected -->
+  <circle cx="518" cy="398" r="5" fill="#FFFFFF"/>
+  <circle cx="546" cy="398" r="5" fill="#FFFFFF"/>
+  <circle cx="532" cy="420" r="5" fill="#FFFFFF"/>
+  <line x1="518" y1="398" x2="546" y2="398" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="518" y1="398" x2="532" y2="420" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="546" y1="398" x2="532" y2="420" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="532" y="460" text-anchor="middle" font-size="11.5" font-weight="700" fill="#201F1E">Logic App</text>
+  <text x="532" y="474" text-anchor="middle" font-size="10" fill="#605E5C">la-backup-confirm-jayden</text>
+  <text x="532" y="487" text-anchor="middle" font-size="9.5" fill="#5C2D91">Recurrence: daily 8 AM</text>
+
+  <!-- Logic App steps badge -->
+  <rect x="478" y="500" width="108" height="58" rx="6" fill="#F1EAFB" stroke="#5C2D91" stroke-dasharray="3,2"/>
+  <text x="532" y="516" text-anchor="middle" font-size="9" fill="#3B1A66">1. Recurrence trigger</text>
+  <text x="532" y="530" text-anchor="middle" font-size="9" fill="#3B1A66">2. List blobs</text>
+  <text x="532" y="544" text-anchor="middle" font-size="9" fill="#3B1A66">3. Send email (V2)</text>
+
+  <!-- ===== Action Group tile ===== -->
+  <g filter="url(#tileShadow)">
+    <rect x="730" y="380" width="64" height="64" rx="12" fill="#CA5010"/>
+  </g>
+  <!-- envelope glyph -->
+  <rect x="746" y="400" width="32" height="22" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M746 400 L762 414 L778 400" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="762" y="460" text-anchor="middle" font-size="11.5" font-weight="700" fill="#201F1E">Action Group</text>
+  <text x="762" y="474" text-anchor="middle" font-size="10" fill="#605E5C">ag-backup-jayden</text>
+  <text x="762" y="487" text-anchor="middle" font-size="9.5" fill="#CA5010">email receiver</text>
+
+  <!-- ===== Actor: Business Owner (right, outside RG) ===== -->
+  <g filter="url(#tileShadow)">
+    <rect x="1090" y="270" width="64" height="64" rx="12" fill="#5C6770"/>
+  </g>
+  <circle cx="1122" cy="292" r="7" fill="#FFFFFF"/>
+  <path d="M1108 312 a14 12 0 0 1 28 0 z" fill="#FFFFFF"/>
+  <text x="1122" y="350" text-anchor="middle" font-size="11.5" font-weight="600" fill="#201F1E">Business</text>
+  <text x="1122" y="364" text-anchor="middle" font-size="11.5" font-weight="600" fill="#201F1E">Owner</text>
+  <text x="1122" y="378" text-anchor="middle" font-size="9.5" fill="#605E5C">receives email</text>
+
+  <!-- ============ ARROWS ============ -->
+
+  <!-- App -> Storage -->
+  <line x1="106" y1="192" x2="268" y2="192" stroke="#605E5C" stroke-width="1.75" marker-end="url(#arrow)"/>
+  <text x="186" y="184" text-anchor="middle" font-size="9.5" fill="#605E5C">upload</text>
+
+  <!-- Storage -> Log Analytics -->
+  <path d="M 336 185 C 410 150, 460 145, 498 158" fill="none" stroke="#605E5C" stroke-width="1.75" marker-end="url(#arrow)"/>
+  <text x="420" y="148" text-anchor="middle" font-size="9.5" fill="#605E5C">logs</text>
+
+  <!-- Storage -> Alert (metrics) -->
+  <path d="M 336 175 C 480 110, 640 105, 728 150" fill="none" stroke="#605E5C" stroke-width="1.75" marker-end="url(#arrow)"/>
+  <text x="540" y="106" text-anchor="middle" font-size="9.5" fill="#605E5C">metrics (Transactions)</text>
+
+  <!-- Alert -> Action Group -->
+  <line x1="762" y1="194" x2="762" y2="378" stroke="#605E5C" stroke-width="1.75" marker-end="url(#arrow)"/>
+  <text x="780" y="290" font-size="9.5" fill="#605E5C">fires if</text>
+  <text x="780" y="302" font-size="9.5" fill="#605E5C">no writes</text>
+
+  <!-- Logic App -> Storage (reads blob list) -->
+  <path d="M 500 405 C 400 340, 360 260, 340 220" fill="none" stroke="#605E5C" stroke-width="1.75" marker-end="url(#arrow)"/>
+  <text x="380" y="320" text-anchor="middle" font-size="9.5" fill="#605E5C">list blobs</text>
+
+  <!-- Logic App -> Action Group (parallel automation, dashed) -->
+  <line x1="566" y1="410" x2="728" y2="405" stroke="#605E5C" stroke-width="1.5" stroke-dasharray="2,3" marker-end="url(#arrow)"/>
+
+  <!-- Action Group -> Owner -->
+  <line x1="796" y1="404" x2="1088" y2="320" stroke="#605E5C" stroke-width="1.75" marker-end="url(#arrow)"/>
+  <text x="950" y="350" text-anchor="middle" font-size="9.5" fill="#605E5C">alert email</text>
+
+  <!-- Logic App -> Owner (daily confirmation) -->
+  <path d="M 566 425 C 850 480, 1020 420, 1088 312" fill="none" stroke="#605E5C" stroke-width="1.75" marker-end="url(#arrow)"/>
+  <text x="900" y="500" text-anchor="middle" font-size="9.5" fill="#605E5C">daily confirmation email</text>
+
+  <!-- ============ Legend ============ -->
+  <rect x="40" y="610" width="1120" height="70" rx="8" fill="#FAFAFA" stroke="#E1DFDD"/>
+  <text x="56" y="630" font-size="11.5" font-weight="700" fill="#201F1E">Legend</text>
+
+  <rect x="56" y="640" width="14" height="14" rx="3" fill="#0078D4"/>
+  <text x="76" y="651" font-size="10" fill="#201F1E">Storage &amp; data protection</text>
+
+  <rect x="246" y="640" width="14" height="14" rx="3" fill="#107C10"/>
+  <text x="266" y="651" font-size="10" fill="#201F1E">Logging &amp; observability</text>
+
+  <rect x="436" y="640" width="14" height="14" rx="3" fill="#5C2D91"/>
+  <text x="456" y="651" font-size="10" fill="#201F1E">Automation (Logic App)</text>
+
+  <rect x="626" y="640" width="14" height="14" rx="3" fill="#D13438"/>
+  <text x="646" y="651" font-size="10" fill="#201F1E">Alerting</text>
+
+  <rect x="746" y="640" width="14" height="14" rx="3" fill="#CA5010"/>
+  <text x="766" y="651" font-size="10" fill="#201F1E">Notification routing</text>
+
+  <rect x="906" y="640" width="14" height="14" rx="3" fill="#5C6770"/>
+  <text x="926" y="651" font-size="10" fill="#201F1E">External actor</text>
+
+  <text x="56" y="668" font-size="9.5" fill="#605E5C">Solid arrows = automated data/metric/notification flow.  Dashed = configuration or parallel automation path.</text>
+</svg>
