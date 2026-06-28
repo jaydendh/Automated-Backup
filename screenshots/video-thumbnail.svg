@@ -1,0 +1,80 @@
+<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2540"/>
+      <stop offset="55%" stop-color="#0B3D6B"/>
+      <stop offset="100%" stop-color="#0078D4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1280" height="720" fill="url(#bgGrad)"/>
+  <circle cx="640" cy="360" r="420" fill="url(#glow)"/>
+
+  <!-- Faint background grid lines for texture -->
+  <g stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="120" x2="1280" y2="120"/>
+    <line x1="0" y1="240" x2="1280" y2="240"/>
+    <line x1="0" y1="480" x2="1280" y2="480"/>
+    <line x1="0" y1="600" x2="1280" y2="600"/>
+  </g>
+
+  <!-- Faint background service icon tiles, scattered, low opacity -->
+  <g opacity="0.16">
+    <!-- storage icon top-left -->
+    <rect x="90" y="90" width="64" height="64" rx="14" fill="#FFFFFF"/>
+    <rect x="108" y="106" width="28" height="9" rx="2" fill="#0A2540"/>
+    <rect x="108" y="118" width="28" height="9" rx="2" fill="#0A2540"/>
+    <rect x="108" y="130" width="28" height="9" rx="2" fill="#0A2540"/>
+
+    <!-- bell icon top-right -->
+    <rect x="1120" y="100" width="64" height="64" rx="14" fill="#FFFFFF"/>
+    <path d="M1147 116 a9 9 0 0 1 9 9 v7 l3.5 5 h-25 l3.5 -5 v-7 a9 9 0 0 1 9 -9 z" fill="#0A2540"/>
+
+    <!-- flow/logic icon bottom-left -->
+    <rect x="110" y="560" width="64" height="64" rx="14" fill="#FFFFFF"/>
+    <circle cx="128" cy="578" r="4.5" fill="#0A2540"/>
+    <circle cx="156" cy="578" r="4.5" fill="#0A2540"/>
+    <circle cx="142" cy="600" r="4.5" fill="#0A2540"/>
+    <line x1="128" y1="578" x2="156" y2="578" stroke="#0A2540" stroke-width="2"/>
+    <line x1="128" y1="578" x2="142" y2="600" stroke="#0A2540" stroke-width="2"/>
+    <line x1="156" y1="578" x2="142" y2="600" stroke="#0A2540" stroke-width="2"/>
+
+    <!-- envelope icon bottom-right -->
+    <rect x="1110" y="555" width="64" height="64" rx="14" fill="#FFFFFF"/>
+    <rect x="1126" y="575" width="32" height="22" rx="2" fill="none" stroke="#0A2540" stroke-width="2.5"/>
+    <path d="M1126 575 L1142 589 L1158 575" fill="none" stroke="#0A2540" stroke-width="2.5"/>
+  </g>
+
+  <!-- Top-left small kicker -->
+  <text x="80" y="76" font-size="16" font-weight="600" fill="#7EC8FF" letter-spacing="2">AZURE · TERRAFORM · LOGIC APPS</text>
+
+  <!-- Top-right badge -->
+  <rect x="1015" y="48" width="195" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFFFFF" stroke-opacity="0.4"/>
+  <text x="1112" y="74" text-anchor="middle" font-size="13.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">3 MIN WALKTHROUGH</text>
+
+  <!-- Play button -->
+  <circle cx="640" cy="330" r="86" fill="#FFFFFF" filter="url(#softShadow)"/>
+  <circle cx="640" cy="330" r="86" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="2"/>
+  <path d="M610 290 L610 370 L678 330 Z" fill="#0078D4"/>
+
+  <!-- Title -->
+  <text x="640" y="475" text-anchor="middle" font-size="46" font-weight="800" fill="#FFFFFF">Automated Backup System</text>
+  <text x="640" y="512" text-anchor="middle" font-size="20" font-weight="500" fill="#C9E6FF">Self-monitoring, geo-redundant backups — provisioned entirely with Terraform</text>
+
+  <!-- Bottom-left author tag -->
+  <text x="80" y="660" font-size="16" fill="#7EC8FF" letter-spacing="1">JAYDEN HILL</text>
+  <text x="80" y="684" font-size="13" fill="#8FB8DC">Cloud &amp; Infrastructure Engineer</text>
+
+  <!-- Bottom-right repo tag -->
+  <text x="1200" y="660" text-anchor="end" font-size="14" fill="#7EC8FF">github.com/jaydendh</text>
+  <text x="1200" y="684" text-anchor="end" font-size="13" fill="#8FB8DC">Automated-Backup</text>
+</svg>
