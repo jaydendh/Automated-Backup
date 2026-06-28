@@ -6,7 +6,7 @@ Infrastructure-as-Code project that replaces a manual "someone copies files to a
 ![Azure](https://img.shields.io/badge/Azure-Blob%20Storage%20%7C%20Logic%20Apps%20%7C%20Monitor-0078D4?logo=microsoftazure&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Complete-success)
 
-[![Watch the demo](https://www.loom.com/share/1076f71f22e3486ab2f0b148625e3044).jpg)](https://www.loom.com/share/1076f71f22e3486ab2f0b148625e3044)
+[![Watch the demo](screenshots/video-thumbnail.png)](https://www.loom.com/share/1076f71f22e3486ab2f0b148625e3044)
 
 ---
 
